@@ -1,0 +1,62 @@
+
+
+#############################################################################################
+# database list
+############################################################################################
+
+- contribDB
+	- cycle specific database of all contributions for senate or house elections in DIME
+
+- dyadDB
+	- cycle specific dyads filtered on relevant transaction types
+	- includes number of transactions between dyads and total dollar amount
+
+- recipDB
+	- information for all recipients contained in dyadDBs
+
+- donorDB 
+	- information for all donors contained in dyadDBs
+
+- node_crosswalk
+	- id crosswalk between recipients and donors
+
+
+#############################################################################################
+# database problems
+############################################################################################
+
+#----------------------------------------
+# duplicate rows
+#----------------------------------------
+
+- recipDB contains duplicate recipients within cycle
+	- party switchers
+	- office switchers
+
+- recipDB contains the same bonica_cid's across different recip's
+	- cid == 3818421227
+		- Tony Strickland; not clear why the rid and icspr are different
+
+	- cid == 2895974305
+		- Includes both Asa Hutchinson and Tim Hutchinson
+		- Both Hutchinson's also swap two rid's (cand1245 and cand5364) and icspr2's (29306 and 29704)
+
+
+#----------------------------------------
+# fec year versus cycle
+#----------------------------------------
+
+# cycle is the election cycle where the contribution was made
+# fec year is the election cycle the contribution is made for
+
+#----------------------------------------
+# other
+#----------------------------------------
+
+# state = 00 are rows for president
+
+#############################################################################################
+# analysis
+############################################################################################
+
+- what's the difference between directed and not directed graphs in terms of calculations?
